@@ -1,0 +1,12 @@
+<template>
+    <lightning:card variant="Narrow" title={task.Subject} class="task-tile">
+	-----------------------
+	<div class="slds-p-horizontal_small">
+		<p class="slds-m-bottom_xx-small">Subject: {task.Subject}</p>
+		<p class="slds-m-bottom_xx-small">Description: {task.Description}</p>
+		<p class="slds-m-bottom_xx-small">Created: {task.CreatedDate}</p>
+		<button onclick={reprioritize}>switch</button>
+	</div>
+	-----------------------
+    </lightning:card>
+</template>

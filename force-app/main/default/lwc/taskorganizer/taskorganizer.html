@@ -1,0 +1,26 @@
+<template>
+	<div class="slds-card__body_inner">
+		<section class="container">
+		<template if:true={allTasks}>
+		<lightning-input type="search"
+					onchange={handleSearchTermChange}
+					variant="label-hidden"
+					class="slds-m-bottom_small"
+					label="Search"
+					placeholder="Tasks for an Account"
+					value={searchTerm}>
+				</lightning-input>
+			<div class="left">
+				<template if:true={tasksHigh}>
+					<c-tasklist onitemclick2={handleSelect2} tasklistdata={tasksHigh} category="High"></c-tasklist>
+				</template>
+			</div>
+			<div class="right">
+				<template if:true={tasksLow}>
+					<c-tasklist onitemclick2={handleSelect2} tasklistdata={tasksLow}  category="Low"></c-tasklist>
+				</template>
+			</div>
+		</template>
+		</section>
+	</div>
+</template>

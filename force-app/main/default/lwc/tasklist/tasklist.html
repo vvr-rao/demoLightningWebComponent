@@ -1,0 +1,11 @@
+<template>
+    <div>
+        <div><b>{category}</b></div>
+    	<template if:true={tasklistdata}> 
+	List of Tasks:
+	        <template for:each={tasklistdata} for:item="task">
+        		<c-taskitem onitemclick={handleSelect} key={task.Id} task={task.value}></c-taskitem>
+		</template>
+	</template>
+    </div>
+</template>
