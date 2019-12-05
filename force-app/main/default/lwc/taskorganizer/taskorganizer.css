@@ -1,9 +1,4 @@
 
-.task-header {
-    background-color: yellow;
-    width: 100%;
-}
-
 .container {
     width: 80%;
     height: 700px;
@@ -14,11 +9,11 @@
 .left {
     width: 40%;
     height: 650px;
-    background: #6295E1;
+    background: #92a8d1;
     float: left;
 }
 .right {
     margin-left: 50%;
     height: 650px;
-    background: aqua;
+    background: #fefbd8;
 }

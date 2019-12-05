@@ -1,6 +1,7 @@
 import { LightningElement, wire, track, api } from 'lwc';
 import getAllTasks from '@salesforce/apex/TaskController.getAllTasks';
 import searchTasks from '@salesforce/apex/TaskController.searchTasks';
+import saveTasks from '@salesforce/apex/TaskController.saveTasks';
 
 export default class taskorganizer extends LightningElement {
 	@track searchTerm = '';
@@ -11,17 +12,54 @@ export default class taskorganizer extends LightningElement {
 	@track error1;
 
 	handleSelect2(evt) {
-		alert('Top Level2');
-		alert(evt.detail);
+		//alert('Top Level2');
+		//alert(evt.detail);
+
+		//let temptasklist = this.tasklist;
+		let tasks = this.tasklist.filter((task) => {
+			if (task.Id=== evt.detail) {
+			    if (task.Priority === "High") {
+					//alert('must change to low');
+					task.Priority = 'Medium';
+				}
+				else {
+					//alert('must change to high');
+					task.Priority = 'High';
+			    }
+				         
+			}              
+			return task;       
+		});
+		this.tasklist = tasks;
+		this.split();
 	}
 
-	@wire(searchTasks, {searchTerm: '$searchTerm'}) allTasks({ error, data }) {
-		if (data) {
-            		this.tasklist = data;
-            		this.split();
-        	} else if (error) {
-           		this.error = error;
-        	}
+	connectedCallback() {
+		this.loadTasks();
+	}
+
+
+	loadTasks() {
+		searchTasks({searchTerm: this.searchTerm})
+			.then(result => {
+				this.tasklist = result;
+				this.split();
+			})
+			.catch(error => {
+				this.error1 = error;
+			});
+	}
+
+	Save() {
+		alert('Save');
+		saveTasks({tasksToUpdate: this.tasklist})
+			.then(result => {
+				//
+			})
+			.catch(error => {
+				this.error1 = error;
+			});
+		
 	}
 	
 	handleSearchTermChange(event) {
@@ -32,6 +70,7 @@ export default class taskorganizer extends LightningElement {
 		const searchTerm = event.target.value;
 		this.delayTimeout = setTimeout(() => {
 			this.searchTerm = searchTerm;
+			this.loadTasks();
 		}, 300);
 	}
 

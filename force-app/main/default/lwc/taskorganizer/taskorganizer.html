@@ -1,7 +1,7 @@
 <template>
 	<div class="slds-card__body_inner">
 		<section class="container">
-		<template if:true={allTasks}>
+		<template if:true={tasklist}>
 		<lightning-input type="search"
 					onchange={handleSearchTermChange}
 					variant="label-hidden"
@@ -20,6 +20,7 @@
 					<c-tasklist onitemclick2={handleSelect2} tasklistdata={tasksLow}  category="Low"></c-tasklist>
 				</template>
 			</div>
+		<button onclick={Save}>Save</button>
 		</template>
 		</section>
 	</div>
