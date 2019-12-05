@@ -10,3 +10,6 @@ FUNCTIONALITY
 2) Segragate between High Priority and non-High Priority Tasks.
 3) Ability to change Priority via a simple toggle
 4) Save updates back to Salesforce
+
+Should be able to Clone using following command: 
+git clone https://github.com/vvr-rao/demoLightningWebComponent
