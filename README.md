@@ -13,3 +13,9 @@ FUNCTIONALITY
 
 Should be able to Clone using following command: 
 git clone https://github.com/vvr-rao/demoLightningWebComponent
+
+
+References
+1) Good place to start: https://trailhead.salesforce.com/content/learn/projects/lwc-build-flexible-apps/record-list
+2) Guide to LWC Events: https://lwc.dev/guide/events#create-and-dispatch-events
+3) A great article on Drag and Drop events. Ended up not using it but very informative: http://sfdcinpractice.com/index.php/how-to-implement-drag-and-drop-in-lightning-web-component/
