@@ -7,7 +7,7 @@ Demostrates abity to
 
 FUNCTIONALITY
 1) Retrieves a set of Tasks (allowing search by Account)
-2) Segregate between High Priority Tasks from non-High Priority Tasks.
+2) Segregate High Priority Tasks from non-High Priority Tasks.
 3) Ability to change Priority via a simple toggle
 4) Save updates back to Salesforce
 
